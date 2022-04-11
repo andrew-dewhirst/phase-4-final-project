@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :reviews
   resources :renovations
-  resources :users
+  resources :users, only: [:index, :update, :destroy]
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
