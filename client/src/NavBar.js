@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({ user, setUser }) {
 
   const navStyle = {
     display: "inline-block",
@@ -12,6 +12,14 @@ function NavBar() {
     color: "white",
     textAlign: "center",
   };
+
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
 
   return (
     <div>
@@ -36,6 +44,11 @@ function NavBar() {
       >
         View My Renovations
       </NavLink>
+      <NavLink to="/test">
+     <button type="button" onClick={handleLogoutClick}>
+          Logout
+     </button>
+    </NavLink>
     </div>
   )
 }
