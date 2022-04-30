@@ -9,7 +9,7 @@ import MyRenovation from "./MyRenovation";
 
 function App() {
   const [user, setUser] = useState(null);
-  console.log(user)
+  const [renovations, setRenovations] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -19,6 +19,12 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch("/renovations")
+      .then((r) => r.json())
+      .then((renovation) => setRenovations(renovation));
+  }, []);
+
 
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -26,6 +32,15 @@ function App() {
         setUser(null);
       }
     });
+  }
+
+  function handleNewRenovation(newRenovation) {
+    setRenovations([...renovations, newRenovation])
+  };
+
+  function handleRenovationDelete(deletedRenovation) {
+    const updatedRenovations = renovations.filter((renovation) => renovation.id !== deletedRenovation)
+    setRenovations(updatedRenovations);
   }
 
   if (!user) return <Login onLogin={setUser} />;
@@ -41,13 +56,13 @@ function App() {
           <Home user={user}/>
         </Route>
         <Route exact path="/renovations">
-          <RenovationList />
+          <RenovationList renovations={renovations}/>
         </Route>
         <Route exact path="/new_renovation">
-          <NewRenovation user={user} />
+          <NewRenovation user={user} renovations={renovations} handleNewRenovation={handleNewRenovation} />
         </Route>
         <Route exact path="/my_renovations">
-          <MyRenovation user={user} />
+          <MyRenovation user={user} renovations={renovations} handleRenovationDelete={handleRenovationDelete}/>
         </Route>
       </Switch>
     </div>

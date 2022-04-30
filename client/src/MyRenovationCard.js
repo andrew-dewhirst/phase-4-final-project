@@ -1,6 +1,6 @@
 import React from "react";
 
-function RenovationCard({ renovation }) {
+function MyRenovationCard({ renovation, handleRenovationDelete }) {
 
 //   function handleButtonClick() {
 //     fetch(`http://localhost:3000/stadiums/${stadium.id}`, {
@@ -16,12 +16,31 @@ function RenovationCard({ renovation }) {
 //       .then((updatedItem) => handleAttendanceClick(updatedItem));
 // }
 
+    // function handleDeleteClick(renovationId) {
+    //   fetch(`/renovations/${renovationId}`, {
+    //     method: "DELETE",
+    //   })
+    //     .then((r) => r.json())
+    //     .then(() => handleRenovationDelete(renovationId));
+    // }
+
+    function handleDeleteClick() {
+      fetch(`/renovations/${renovation.id}`, {
+        method: "DELETE",
+      }).then((r) => {
+        if (r.ok) {
+          handleRenovationDelete(renovation.id);
+        }
+      });
+    }
+
   return (
     <ul className="card">
       <h4>{renovation.title}</h4>
       <h4>{renovation.location}</h4>
       <h4>{renovation.room}</h4>
       <h4>{renovation.cost}</h4>
+      <button onClick= {handleDeleteClick} >Remove Renovation</button>
       {/* <img src={renovation.before_image} alt="Not Available" /> */}
       {/* {stadium.attended ? (
         <button onClick={handleButtonClick}>Crossed off the List</button>
@@ -32,4 +51,4 @@ function RenovationCard({ renovation }) {
   );
 }
 
-export default RenovationCard
+export default MyRenovationCard

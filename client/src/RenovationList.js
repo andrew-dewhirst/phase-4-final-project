@@ -1,16 +1,8 @@
-import React, {useEffect, useState } from "react";
+import React from "react";
 import RenovationCard from "./RenovationCard";
 
-function RenovationList() {
-  const [renovations, setRenovations] = useState([]);
+function RenovationList({ renovations }) {
 
-  useEffect(() => {
-    fetch("/renovations")
-      .then((r) => r.json())
-      .then(setRenovations);
-  }, []);
-
-  console.log(renovations)
 
   return (
     <ul className="cards">

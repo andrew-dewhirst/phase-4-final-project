@@ -1,16 +1,18 @@
 import React from "react";
-import RenovationCard from "./RenovationCard";
+import MyRenovationCard from "./MyRenovationCard";
 
-function MyRenovation({ user }) {
+function MyRenovation({ user, renovations, handleRenovationDelete }) {
   console.log(user.renovations)
+
+  const userRenovations = renovations.filter((renovation) => renovation.user_id === user.id) 
 
   return (
     <ul className="cards">
-      {user.renovations.map((renovation) =>
-      <RenovationCard
+      {userRenovations.map((renovation) =>
+      <MyRenovationCard
         key={renovation.id}
         renovation={renovation}
-        // handleAttendanceClick={handleAttendanceClick}
+        handleRenovationDelete={handleRenovationDelete}
       />
       )}
     </ul>
