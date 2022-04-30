@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
+import Home from "./Home";
 import RenovationList from "./RenovationList";
 import NewRenovation from "./NewRenovation";
 
 function App() {
   const [user, setUser] = useState(null);
+  console.log(user)
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -34,7 +36,10 @@ function App() {
           Logout
      </button>
       <Switch>
-        <Route exact path="/">
+      <Route exact path="/">
+          <Home user={user}/>
+        </Route>
+        <Route exact path="/renovations">
           <RenovationList />
         </Route>
         <Route exact path="/new_renovation">
