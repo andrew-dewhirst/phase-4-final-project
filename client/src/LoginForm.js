@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -40,7 +40,7 @@ function LoginForm({ onLogin }) {
       <label htmlFor="password_confirmation">Confirm Password:</label>
       <input
         type="password"
-        id="password_confirmation"
+        id="passwordConfirmation"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
       />

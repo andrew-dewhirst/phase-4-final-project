@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function SignupForm({ onLogin }) {
   const [first_name, setFirstName] = useState("");
@@ -54,21 +54,21 @@ function SignupForm({ onLogin }) {
       <label htmlFor="username">Username:</label>
       <input
         type="text"
-        id="username"
+        id="signUpUsername"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <label htmlFor="password">Password:</label>
       <input
         type="password"
-        id="password"
+        id="signUpPassword"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <label htmlFor="password_confirmation">Confirm Password:</label>
       <input
         type="password"
-        id="password_confirmation"
+        id="signUpPasswordConfirmation"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
       />

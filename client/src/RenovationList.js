@@ -1,4 +1,5 @@
 import React, {useEffect, useState } from "react";
+import RenovationCard from "./RenovationCard";
 
 function RenovationList() {
   const [renovations, setRenovations] = useState([]);
@@ -12,9 +13,15 @@ function RenovationList() {
   console.log(renovations)
 
   return (
-    <div>
-      List of Renovations
-    </div>
+    <ul className="cards">
+      {renovations.map((renovation) =>
+      <RenovationCard
+        key={renovation.id}
+        renovation={renovation}
+        // handleAttendanceClick={handleAttendanceClick}
+      />
+      )}
+    </ul>
   )
 }
 
