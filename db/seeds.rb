@@ -8,12 +8,12 @@
 
 puts "📃 Seeding data..."
 
-User.create(
-  first_name:"Andrew",
-  last_name:"Dewhirst",
-  email:"andrew@aol.com",
-  username:"andrew.dewhirst",
-  password_digest:"123"
-  )
+Review.create(
+  title:"My First Review!",
+  description:"This kitchen looks great.",
+  rating:"5",
+  user_id:"3",
+  renovation_id:"1"
+)
 
 puts "✅ Done seeding"

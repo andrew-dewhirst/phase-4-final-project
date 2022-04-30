@@ -13,6 +13,11 @@ class RenovationsController < ApplicationController
     render json: renovation, status: :created
   end
 
+  def destroy
+    renovation = Renovation.find(params[:id])
+    renovation.destroy
+  end
+
   private
 
   def authorize

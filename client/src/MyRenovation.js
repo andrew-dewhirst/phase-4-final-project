@@ -1,6 +1,8 @@
 import React from "react";
 
 function MyRenovation({ user }) {
+  console.log(user.renovations)
+
   return (
     <div>
       Welcome to your renovations {user.first_name} {user.last_name}!
