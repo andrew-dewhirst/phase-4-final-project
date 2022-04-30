@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function SignUpForm({ onLogin }) {
+function SignupForm({ onLogin }) {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -77,4 +77,4 @@ function SignUpForm({ onLogin }) {
   );
 }
 
-export default SignUpForm
+export default SignupForm
