@@ -5,6 +5,7 @@ import Login from "./Login";
 import Home from "./Home";
 import RenovationList from "./RenovationList";
 import NewRenovation from "./NewRenovation";
+import MyRenovation from "./MyRenovation";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route exact path="/new_renovation">
           <NewRenovation user={user} />
+        </Route>
+        <Route exact path="/my_renovations">
+          <MyRenovation user={user} />
         </Route>
       </Switch>
     </div>
