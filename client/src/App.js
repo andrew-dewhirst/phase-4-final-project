@@ -17,11 +17,23 @@ function App() {
     });
   }, []);
 
+
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
+
   if (!user) return <Login onLogin={setUser} />;
 
   return (
     <div>
       <NavBar user={user} setUser={setUser} />
+      <button type="button" onClick={handleLogoutClick}>
+          Logout
+     </button>
       <Switch>
         <Route path="/new">
           <NewRenovation user={user} />
