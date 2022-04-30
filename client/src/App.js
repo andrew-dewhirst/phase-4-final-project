@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import RenovationList from "./RenovationList";
@@ -17,22 +17,20 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  // if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <>
+    <div>
       <NavBar user={user} setUser={setUser} />
-      <main>
-        <Switch>
-          <Route path="/new">
-            <NewRenovation user={user} />
-          </Route>
-          <Route path="/">
-            <RenovationList />
-          </Route>
-        </Switch>
-      </main>
-    </>
+      <Switch>
+        <Route path="/new">
+          <NewRenovation user={user} />
+        </Route>
+        <Route path="/">
+          <RenovationList />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

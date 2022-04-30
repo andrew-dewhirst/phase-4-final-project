@@ -1,10 +1,11 @@
 import React from "react";
+import SignUpForm from "./SignUpForm";
 
 function Login() {
 
   return (
     <div>
-      Login Page
+      <SignUpForm />
     </div>
   )
 }
