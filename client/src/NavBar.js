@@ -36,6 +36,13 @@ function NavBar() {
       >
         View My Renovations
       </NavLink>
+      <NavLink to ="/new_renovation"
+      exact
+      style={navStyle}
+      activeStyle={{background: "#696969"}}
+      >
+        Create New Renovation
+      </NavLink>
     </div>
   )
 }

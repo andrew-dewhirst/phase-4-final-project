@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "./Login";
 import RenovationList from "./RenovationList";
@@ -9,7 +9,6 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
@@ -35,11 +34,11 @@ function App() {
           Logout
      </button>
       <Switch>
-        <Route path="/new">
-          <NewRenovation user={user} />
-        </Route>
-        <Route path="/">
+        <Route exact path="/">
           <RenovationList />
+        </Route>
+        <Route exact path="/new_renovation">
+          <NewRenovation user={user} />
         </Route>
       </Switch>
     </div>
