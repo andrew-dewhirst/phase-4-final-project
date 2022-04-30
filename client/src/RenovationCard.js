@@ -22,7 +22,7 @@ function RenovationCard({ renovation, handleAttendanceClick }) {
       <h4>{renovation.location}</h4>
       <h4>{renovation.room}</h4>
       <h4>{renovation.cost}</h4>
-      <img src={renovation.before_image} alt="Not Available" />
+      {/* <img src={renovation.before_image} alt="Not Available" /> */}
       {/* {stadium.attended ? (
         <button onClick={handleButtonClick}>Crossed off the List</button>
       ) : (

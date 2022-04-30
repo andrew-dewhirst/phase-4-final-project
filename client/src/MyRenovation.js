@@ -1,13 +1,21 @@
 import React from "react";
+import RenovationCard from "./RenovationCard";
 
 function MyRenovation({ user }) {
   console.log(user.renovations)
 
   return (
-    <div>
-      Welcome to your renovations {user.first_name} {user.last_name}!
-    </div>
-  );
+    <ul className="cards">
+      {user.renovations.map((renovation) =>
+      <RenovationCard
+        key={renovation.id}
+        renovation={renovation}
+        // handleAttendanceClick={handleAttendanceClick}
+      />
+      )}
+    </ul>
+  )
 };
 
 export default MyRenovation
+
