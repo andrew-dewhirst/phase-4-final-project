@@ -13,6 +13,12 @@ class RenovationsController < ApplicationController
     render json: renovation, status: :created
   end
 
+  def update
+    renovation = Renovation.find_by(id: params[:id])
+      renovation.update!(renovation_params)
+      render json: renovation
+  end 
+
   def destroy
     renovation = Renovation.find(params[:id])
     renovation.destroy
@@ -25,7 +31,7 @@ class RenovationsController < ApplicationController
   end
 
   def renovation_params
-    params.permit(:title, :location, :room, :cost, :before_image, :during_image, :after_image, :description)
+    params.permit(:title, :location, :room, :cost, :before_image, :during_image, :after_image, :description, :likes)
   end
 
   def render_unprocessable_entity_response(invalid)
