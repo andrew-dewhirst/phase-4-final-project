@@ -1,6 +1,9 @@
 import React from "react";
 
 function MyRenovationCard({ renovation, handleRenovationDelete }) {
+  const title = renovation.reviews.map((review) => review.title);
+  const description = renovation.reviews.map((review) => review.description);
+  const rating = renovation.reviews.map((review) => review.rating);
 
     function handleDeleteClick() {
       fetch(`/renovations/${renovation.id}`, {
@@ -23,7 +26,10 @@ function MyRenovationCard({ renovation, handleRenovationDelete }) {
       <img src={renovation.after_image} alt="Not Available" />
       <h4>Likes: {renovation.likes}</h4>
       <button onClick={handleDeleteClick}>Remove Renovation</button>
-      <h4>Reviews: {renovation.reviews}</h4>
+      <h4>Reviews:</h4>
+      <p>Title: {title}</p>
+      <p>Description: {description}</p>
+      <p>Rating: {rating}</p>
     </ul>
   );
 }
