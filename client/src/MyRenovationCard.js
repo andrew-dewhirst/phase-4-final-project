@@ -42,7 +42,6 @@ function MyRenovationCard({ renovation, handleRenovationDelete }) {
       <h4>{renovation.cost}</h4>
       <h4>{renovation.likes}</h4>
       <button onClick={handleDeleteClick}>Remove Renovation</button>
-      <button onClick={handleUpdateClick}>Favorite This Renovation</button>
       {/* <img src={renovation.before_image} alt="Not Available" /> */}
       {/* {stadium.attended ? (
         <button onClick={handleButtonClick}>Crossed off the List</button>

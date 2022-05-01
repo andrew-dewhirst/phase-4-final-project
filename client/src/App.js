@@ -43,6 +43,13 @@ function App() {
     setRenovations(updatedRenovations);
   }
 
+  function handleUpdateRenovation(updatedRenovation) {
+    const updatedRenovationArray = renovations.map((renovation) => {
+      return renovation.id === updatedRenovation.id ? updatedRenovation : renovation;
+    });
+    setRenovations(updatedRenovationArray);
+  }
+
   if (!user) return <Login onLogin={setUser} />;
 
   return (
@@ -56,13 +63,13 @@ function App() {
           <Home user={user}/>
         </Route>
         <Route exact path="/renovations">
-          <RenovationList renovations={renovations}/>
+          <RenovationList renovations={renovations} handleUpdateRenovation={handleUpdateRenovation}/>
         </Route>
         <Route exact path="/new_renovation">
           <NewRenovation user={user} renovations={renovations} handleNewRenovation={handleNewRenovation} />
         </Route>
         <Route exact path="/my_renovations">
-          <MyRenovation user={user} renovations={renovations} handleRenovationDelete={handleRenovationDelete}/>
+          <MyRenovation user={user} renovations={renovations} handleRenovationDelete={handleRenovationDelete} />
         </Route>
       </Switch>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import RenovationCard from "./RenovationCard";
 
-function RenovationList({ renovations }) {
+function RenovationList({ renovations, handleUpdateRenovation }) {
 
 
   return (
@@ -10,6 +10,7 @@ function RenovationList({ renovations }) {
       <RenovationCard
         key={renovation.id}
         renovation={renovation}
+        handleUpdateRenovation={handleUpdateRenovation}
         // handleAttendanceClick={handleAttendanceClick}
       />
       )}
