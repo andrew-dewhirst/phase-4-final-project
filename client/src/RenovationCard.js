@@ -5,10 +5,6 @@ function RenovationCard({ renovation, user, handleUpdateRenovation }) {
   const description = renovation.reviews.map((review) => review.description);
   const rating = renovation.reviews.map((review) => review.rating);
 
-  console.log(title)
-  console.log(description)
-  console.log(rating)
-
   function handleLikesClick() {
     fetch(`/renovations/${renovation.id}`, {
       method: "PATCH",

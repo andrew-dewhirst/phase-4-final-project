@@ -27,9 +27,9 @@ function MyRenovationCard({ renovation, handleRenovationDelete }) {
       <h4>Likes: {renovation.likes}</h4>
       <button onClick={handleDeleteClick}>Remove Renovation</button>
       <h4>Reviews:</h4>
-      <p>Title: {title}</p>
-      <p>Description: {description}</p>
-      <p>Rating: {rating}</p>
+      <p>Title: {title.map((title) => <ol>{title}</ol>)}</p>
+      <p>Description: {description.map((description) => <ol>{description}</ol>)}</p>
+      <p>Rating: {rating.map((rating) => <ol>{rating}</ol>)}</p>
     </ul>
   );
 }
