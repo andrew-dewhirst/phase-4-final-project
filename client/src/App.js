@@ -51,9 +51,6 @@ function App() {
     setRenovations(updatedRenovationArray);
   }
 
-  console.log(errors)
-
-
   if (!user) return (
     <div>
       <h3>{errors}</h3>
@@ -72,7 +69,7 @@ function App() {
           <Home user={user}/>
         </Route>
         <Route exact path="/renovations">
-          <RenovationList renovations={renovations} handleUpdateRenovation={handleUpdateRenovation}/>
+          <RenovationList renovations={renovations} user={user} handleUpdateRenovation={handleUpdateRenovation} />
         </Route>
         <Route exact path="/new_renovation">
           <NewRenovation user={user} renovations={renovations} handleNewRenovation={handleNewRenovation} />

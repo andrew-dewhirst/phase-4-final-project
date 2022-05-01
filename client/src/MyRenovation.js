@@ -2,7 +2,6 @@ import React from "react";
 import MyRenovationCard from "./MyRenovationCard";
 
 function MyRenovation({ user, renovations, handleRenovationDelete }) {
-  console.log(user.renovations)
 
   const userRenovations = renovations.filter((renovation) => renovation.user_id === user.id) 
 

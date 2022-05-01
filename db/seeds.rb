@@ -9,11 +9,11 @@
 puts "📃 Seeding data..."
 
 Review.create(
-  title:"My First Review!",
-  description:"This kitchen looks great.",
-  rating:"5",
-  user_id:"3",
-  renovation_id:"1"
+  title: "Another Test Review",
+  description: "Let's go!",
+  rating: 3,
+  renovation_id: 1,
+  user_id: 1
 )
 
 puts "✅ Done seeding"
