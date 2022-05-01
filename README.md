@@ -1,3 +1,39 @@
+# Renovat8 - The Crowdsourced Renovation Site
+
+## Description
+
+Come share your renovations on Renov8, an app that allows you to track your own renovations while reviewing other people's submissions. Create an account to create and remove renovations from your profile, while also being able to view others' renovations and add your reviews and "like" them.
+
+## Front End
+
+The front end of Renov8 was built using React (see "Project Template" below for more details), and the individual Components can be found within the src folder.
+
+## Back End
+
+The back end of Renov8 was built using Rails (see "Project Template" below for more details). Running `bundle install` will install all the gems and dependencies needed for this app.
+
+## User Story
+
+As a user, I can:
+- Log in and out of the site
+- View all of the renovations on the site and their corresponding reviews
+- View my specific renovations and their corresponding reviews
+- Create a new renovation
+- Delete a renovation I created (but not one created by someone else)
+- Add a "like" or "favorite" to renovations on the site (but you cannot "like" your own renovation)
+
+## Stretch Goals/Future Functionality - Coming Soon!
+
+As a user, I can:
+- Direct message other users to get insight into how they did their renovations
+- Advanced filtering to allow for searching by location, type of renovation, etc
+- Be redirected to local hardware stores (Lowes, Home Depot, etc) for the materials used in the renovation I'm viewing
+- Receive a "premier user" flag if I submit over 10 renovations
+- Edit a renovation I created
+- Create a new review for a renovation
+- Edit a review I left
+- Delete a review I left
+
 # Project Template: React/Rails API
 
 ## Description
