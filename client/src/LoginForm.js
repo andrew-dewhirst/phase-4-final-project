@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, setErrors }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -18,9 +18,15 @@ function LoginForm({ onLogin }) {
         password_confirmation: passwordConfirmation,
       }),
     })
-      .then((r) => r.json())
-      .then(onLogin);
-  }
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((user) => onLogin(user));
+      } else {
+        response.json().then((errorData) => setErrors(errorData.errors));
+      }
+    })
+  };
+
   return (
     <div id="loginform">
       <h3>Login</h3>

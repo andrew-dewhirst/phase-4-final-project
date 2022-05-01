@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SignupForm({ onLogin }) {
+function SignupForm({ onLogin, setErrors }) {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,9 +24,14 @@ function SignupForm({ onLogin }) {
         password_confirmation: passwordConfirmation,
       }),
     })
-      .then((r) => r.json())
-      .then(onLogin);
-  }
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((user) => onLogin(user));
+      } else {
+        response.json().then((errorData) => setErrors(errorData.errors));
+      }
+    })
+  };
 
   return (
     <div id="signupform">

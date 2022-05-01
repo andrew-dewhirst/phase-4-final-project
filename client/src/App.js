@@ -10,6 +10,7 @@ import MyRenovation from "./MyRenovation";
 function App() {
   const [user, setUser] = useState(null);
   const [renovations, setRenovations] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -50,7 +51,15 @@ function App() {
     setRenovations(updatedRenovationArray);
   }
 
-  if (!user) return <Login onLogin={setUser} />;
+  console.log(errors)
+
+
+  if (!user) return (
+    <div>
+      <h3>{errors}</h3>
+      <Login onLogin={setUser} setErrors={setErrors} />;
+    </div>
+  )
 
   return (
     <div>
