@@ -5,7 +5,7 @@ function NavBar() {
 
   const navStyle = {
     display: "inline-block",
-    width: "25%",
+    width: "15%",
     padding: "12px",
     margin: "0 4% 6px",
     background: "black",
