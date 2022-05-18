@@ -6,4 +6,6 @@ class User < ApplicationRecord
   
   has_many :renovations, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  # has_many :commented_renovations, through: :reviews, source: :renovation
+  # ^aliasing associations
 end
