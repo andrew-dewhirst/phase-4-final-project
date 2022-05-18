@@ -75,7 +75,7 @@ function App() {
           <NewRenovation user={user} renovations={renovations} handleNewRenovation={handleNewRenovation} />
         </Route>
         <Route exact path="/my_renovations">
-          <MyRenovation user={user} renovations={renovations} handleRenovationDelete={handleRenovationDelete} />
+          <MyRenovation user={user} renovations={renovations} handleRenovationDelete={handleRenovationDelete} handleUpdateRenovation={handleUpdateRenovation} />
         </Route>
       </Switch>
     </div>

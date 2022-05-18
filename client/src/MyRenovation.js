@@ -1,7 +1,7 @@
 import React from "react";
 import MyRenovationCard from "./MyRenovationCard";
 
-function MyRenovation({ user, renovations, handleRenovationDelete }) {
+function MyRenovation({ user, renovations, handleRenovationDelete, handleUpdateRenovation }) {
 
   const userRenovations = renovations.filter((renovation) => renovation.user_id === user.id) 
 
@@ -12,6 +12,7 @@ function MyRenovation({ user, renovations, handleRenovationDelete }) {
         key={renovation.id}
         renovation={renovation}
         handleRenovationDelete={handleRenovationDelete}
+        handleUpdateRenovation={handleUpdateRenovation}
       />
       )}
     </ul>
